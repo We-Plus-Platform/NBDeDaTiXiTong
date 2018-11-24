@@ -8,9 +8,9 @@ if($_POST["openid"]==$_SESSION["openid"])
   $ture=$ezhan->check($_POST["id"],$_POST["index"]);//($openid,$id,$answer,$duration)
   $ezhan->update($_POST["openid"],$_POST["id"],$ture,$_POST["duration"]);
   $dan["answer"]=$ture;
-  return json_encode($dan);
+  echo json_encode($dan);
 }
 else {
   $dan["answer"]=false;
-  return json_encode($dan);
+  echo json_encode($dan);
 }

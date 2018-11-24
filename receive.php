@@ -10,9 +10,9 @@ if($_POST["openid"]==$_SESSION["openid"])
   $pop[2]=$_POST["real_name"];
   $pop[3]=$_POST["code"];
   $dan["receive"]=$ezhan->receive(...$pop);
-  return json_encode($dan);
+  echo json_encode($dan);
 }
 else {
   $dan["receive"]=false;
-  return json_encode($dan);
+  echo json_encode($dan);
 }
