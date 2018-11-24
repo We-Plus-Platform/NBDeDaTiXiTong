@@ -6,8 +6,8 @@
  * Time: 11:16
  */
 
-require "class/Api.php";
-require "class/WxProcessor.php";
+require_once "class/Api.php";
+require_once "class/WxProcessor.php";
 
 $cxapi = new Api();
 

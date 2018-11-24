@@ -6,7 +6,7 @@
  * Time: 21:43
  */
 
-require "Db.php";
+require_once "Db.php";
 //登录
 //抽题
 

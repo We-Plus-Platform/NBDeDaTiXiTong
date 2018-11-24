@@ -6,7 +6,7 @@
  * Time: 19:34
  */
 
-require "Password.php";
+require_once "Password.php";
 
 
 class Db extends Password

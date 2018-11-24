@@ -6,7 +6,7 @@
  * Time: 18:25
  */
 
-require "Db.php";
+require_once "Db.php";
 
 class WxProcessor extends Db
 {

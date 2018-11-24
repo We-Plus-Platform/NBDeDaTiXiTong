@@ -6,7 +6,7 @@
  * Time: 21:33
  */
 
-require "Http.php";
+require_once "Http.php";
 class WxGetUserInfo
 {
     private $app_id;

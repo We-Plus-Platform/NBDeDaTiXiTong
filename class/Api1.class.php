@@ -31,7 +31,7 @@ class api1{
         {
           if($row["answer"]==$index)//校验答案
           {
-            return ture;
+            return true;
           }
           else
           {
@@ -51,7 +51,7 @@ class api1{
             }
             $i++;
           }
-          return ture;
+          return true;
         }
       }
     }
@@ -80,14 +80,14 @@ class api1{
     else
     {
       //记录答题信息
-      $dan = $this->dbh->prepare("INSERT INTO log (openid,id,ture,duration,time) VALUES (?, ?,?,?,?)");
+      $dan = $this->dbh->prepare("INSERT INTO log (openid,id,true,duration,time) VALUES (?, ?,?,?,?)");
       $dan->bindParam(1, $openid);
       $dan->bindParam(2, $id);
       $dan->bindParam(3, $answer);
       $dan->bindParam(4, $duration);
       $dan->bindParam(5, $time);
       $dan->execute();
-      if($answer==ture)
+      if($answer==true)
       {//加分
         $dan2=$this->dbh->prepare("SELECT num FROM person_info where openid = ?");
         $dan2->bindParam(1, $openid);
@@ -100,7 +100,7 @@ class api1{
         $dan3->bindParam(2, $openid);
         $dan3->execute();
       }
-      return ture;
+      return true;
     }
   }
   function cover($openid)//获取个人信息
@@ -153,7 +153,7 @@ class api1{
     $row = $stmt->fetch();
     if($row["code"])
     {
-      return ture;
+      return true;
     }
     else
     {
