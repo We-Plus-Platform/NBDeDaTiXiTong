@@ -131,5 +131,30 @@ class api1{
     $dan["isdo"]=$isdo;
     return $dan;
   }
+  function receive($college,$email,$real_name,$code)//写入个人信息
+  {
+    $dan = $this->dbh->prepare("INSERT INTO person_info (college,email,real_name,code) VALUES (?, ?,?,?)");
+    $dan->bindParam(1, $college);
+    $dan->bindParam(2, $email);
+    $dan->bindParam(3, $real_name);
+    $dan->bindParam(4, $code);
+    $exe=$dan->execute();
+    return $exe;
+  }
+  function message($openid)//验证信息是否填完
+  {
+    $stmt = $this->dbh->prepare("SELECT code FROM person_info where openid = ?");
+    $stmt->bindParam(1, $openid);
+    $stmt->execute();
+    $row = $stmt->fetch();
+    if($row["code"])
+    {
+      return ture;
+    }
+    else
+    {
+      return false;
+    }
+  }
 }
 ?>
