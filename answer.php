@@ -11,10 +11,11 @@ $cx = new Api();
 switch ($_GET['action']) {
     case 'getQuestion':
         {
-            return json_encode($cx->questionPicker());
+            echo json_encode($cx->questionPicker());
+            break;
         }
     default:
         {
-            return json_encode(array('status' => 404));
+            echo json_encode(array('status' => 404));
         }
 }
