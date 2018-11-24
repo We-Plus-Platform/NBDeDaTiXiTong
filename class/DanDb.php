@@ -12,6 +12,9 @@ class DanDb extends Password
 {
     protected $stmt;
 
+    /**
+     * DanDb constructor.
+     */
     public function __construct()
     {
         $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname . ';port:3306;charset=utf8';

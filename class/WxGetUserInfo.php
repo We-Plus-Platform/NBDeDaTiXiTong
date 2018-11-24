@@ -14,6 +14,12 @@ class WxGetUserInfo
     private $app_secret;
     private $code;
 
+    /**
+     * WxGetUserInfo constructor.
+     * @param $app_id
+     * @param $app_secret
+     * @param $code
+     */
     public function __construct($app_id, $app_secret, $code)
     {
         $this->app_id = $app_id;
@@ -21,6 +27,9 @@ class WxGetUserInfo
         $this->code = $code;
     }
 
+    /**
+     * @return int|mixed
+     */
     private function getAccessToken()
     {
         $app_id = $this->app_id;
@@ -36,6 +45,9 @@ class WxGetUserInfo
         return 0;
     }
 
+    /**
+     * @return int|mixed
+     */
     public function getUserInfo()
     {
         $res = $this->getAccessToken();
