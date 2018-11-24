@@ -23,13 +23,13 @@ class api1{
   {
     $stmt = $this->dbh->prepare("SELECT answer,type FROM question where id = ?");
     $stmt->bindParam(1, $id);
-    if ($stmt->execute())
+    if ($stmt->execute())//判断是否有这道题
     {
       while ($row = $stmt->fetch())
       {
-        if($row["type"]=="single")
+        if($row["type"]=="single")//判断 题类型
         {
-          if($row["answer"]==$index)
+          if($row["answer"]==$index)//校验答案
           {
             return ture;
           }
@@ -43,7 +43,7 @@ class api1{
           $answer=json_decode($row["answer"],true);
           $index=json_decode($index);
           $i=0;
-          while($answer[$i])
+          while($answer[$i])//多选校验
           {
             if($answer[$i]!=$index[$i])
             {
@@ -54,6 +54,9 @@ class api1{
           return ture;
         }
       }
+    }
+    else {
+      return false;
     }
   }
   function isdo($openid)//查询今日答了几题
@@ -70,12 +73,13 @@ class api1{
   {
     $isdo=$this->isdo($openid);
     $time=date("Ymd");
-    if($isdo>=10)
+    if($isdo>=10)//判断是否答满10道
     {
       return false;
     }
     else
     {
+      //记录答题信息
       $dan = $this->dbh->prepare("INSERT INTO log (openid,id,ture,duration,time) VALUES (?, ?,?,?,?)");
       $dan->bindParam(1, $openid);
       $dan->bindParam(2, $id);
@@ -84,7 +88,7 @@ class api1{
       $dan->bindParam(5, $time);
       $dan->execute();
       if($answer==ture)
-      {
+      {//加分
         $dan2=$this->dbh->prepare("SELECT num FROM person_info where openid = ?");
         $dan2->bindParam(1, $openid);
         $dan2->execute();
@@ -108,14 +112,14 @@ class api1{
     $imgUrl=$row["imgUrl"];
     $score=$row["num"];
     $college=$row["college"];
-
+    //查询此人有几天参与答题
     $dan=$this->dbh->prepare("SELECT count(*) as total FROM (select count(*) from log where openid=? group by time) as table1");
     $dan->bindParam(1, $openid);
     $dan->execute();
     $row = $dan->fetch();
     $day=$row["total"];
 
-    $chance=$this->isdo($openid);
+    $chance=$this->isdo($openid);//今日是否答题
     if($chance>=10)
     {
       $isdo=0;
