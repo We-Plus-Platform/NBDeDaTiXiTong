@@ -156,5 +156,28 @@ class api1{
       return false;
     }
   }
+  function board($openid)//排行榜
+  {
+    $stmt = $this->dbh->prepare("SELECT name,imgUrl,num,college,openid FROM person_info order by num DESC");
+    $stmt->execute();
+    $i=0;
+    while($row = $stmt->fetch())
+    {
+        $dan[$i]["name"]=$row["name"];
+        $dan[$i]["imgUrl"]=$row["imgUrl"];
+        $dan[$i]["score"]=$row["num"];
+        $dan[$i]["college"]=$row["college"];
+        if($openid==$row["openid"])
+        {
+          $dan[$i]["isUser"]=1;
+        }
+        else
+        {
+          $dan[$i]["isUser"]=0;
+        }
+        $i++;
+    }
+    return $dan;
+  }
 }
 ?>
