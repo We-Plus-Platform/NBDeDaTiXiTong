@@ -26,7 +26,7 @@ class WxGetUserInfo
         $app_id = $this->app_id;
         $app_secret = $this->app_secret;
         $code = $this->code;
-        $access_token_url = "https://api.weixin.qq.com/sns/oauth2/access_token?app_id=$app_id&secret=$app_secret&code=$code&grant_type=authorization_code";
+        $access_token_url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=$app_id&secret=$app_secret&code=$code&grant_type=authorization_code";
         try {
             $res = json_decode(Http::httpGet($access_token_url), true);
             return $res;
