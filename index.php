@@ -14,7 +14,8 @@ $cxapi = new Api();
 
 if (Api::isLogin()) {
     echo "已登录";
+    echo $_SESSION['openid'];
 } else {
-    $url = WxProcessor::genAuthURL($app_id, "http://www.yf407.cn/cxdt/api/login.php","login");
+    $url = WxProcessor::genAuthURL($app_id, "http://www.yf407.cn/cxdt/api/login.php", "login");
     header("Location: " . $url);
 }
