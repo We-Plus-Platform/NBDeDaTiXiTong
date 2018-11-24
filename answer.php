@@ -6,6 +6,7 @@
  * Time: 0:18
  */
 
+require_once 'class/Api.php';
 $cx = new Api();
 switch ($_GET['action']) {
     case 'getQuestion':
