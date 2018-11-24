@@ -6,12 +6,10 @@
  * Time: 18:41
  */
 
-require "class/WxGetUserInfo.php";
-require "class/WxProcessor.php";
-require "class/Api.php";
-
-global $app_id;
-global $app_secret;
+require_once "class/WxGetUserInfo.php";
+require_once "class/WxProcessor.php";
+require_once "class/Api.php";
+require_once "wx_config.php";
 
 $code = $_GET['code'];
 $state = $_GET["state"];

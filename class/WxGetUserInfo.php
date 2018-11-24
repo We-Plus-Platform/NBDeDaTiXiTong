@@ -7,6 +7,7 @@
  */
 
 require_once "Http.php";
+
 class WxGetUserInfo
 {
     private $app_id;
