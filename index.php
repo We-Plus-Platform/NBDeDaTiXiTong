@@ -8,6 +8,7 @@
 
 require_once "class/Api.php";
 require_once "class/WxProcessor.php";
+require_once "wx_config.php";
 
 $cxapi = new Api();
 
