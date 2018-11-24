@@ -1,3 +1,4 @@
 /.idea/
 password.php
 wx_config.php
+/class/Password.php
