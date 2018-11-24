@@ -8,8 +8,7 @@
 
 require_once "Password.php";
 
-
-class Db extends Password
+class DanDb extends Password
 {
     protected $stmt;
 

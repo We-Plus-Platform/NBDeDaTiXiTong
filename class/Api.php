@@ -6,11 +6,11 @@
  * Time: 21:43
  */
 
-require_once "Db.php";
+require_once "DanDb.php";
 //登录
 //抽题
 
-class Api extends Db
+class Api extends DanDb
 {
     /**
      * @return bool

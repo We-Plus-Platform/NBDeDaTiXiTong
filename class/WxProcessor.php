@@ -6,9 +6,9 @@
  * Time: 18:25
  */
 
-require_once "Db.php";
+require_once "DanDb.php";
 
-class WxProcessor extends Db
+class WxProcessor extends DanDb
 {
     /**
      * @param $app_id
