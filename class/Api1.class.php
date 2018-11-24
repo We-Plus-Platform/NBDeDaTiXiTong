@@ -181,7 +181,9 @@ class api1{
         }
         $i++;
     }
-    return $dan;
+    if(isset($dan))
+        return $dan;
+    else
+      return [];
   }
 }
-?>
