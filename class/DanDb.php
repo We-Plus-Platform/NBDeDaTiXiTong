@@ -18,6 +18,11 @@ class DanDb extends Password
     public function __construct()
     {
         $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname . ';port:3306;charset=utf8';
-        $this->stmt = new PDO($dsn, $this->username, $this->passwd);
+        try {
+            $this->stmt = new PDO($dsn, $this->username, $this->passwd);
+        } catch (PDOException $e) {
+            echo json_encode(array("Error" => $e->getMessage()));
+        }
+
     }
 }

@@ -5,6 +5,7 @@ class api1{
   var $user;
   var $pass;
   var $dbname;
+  var $dbh;
   function __construct( $par1, $par2, $par3,$par4)//数据库连接 构造函数
   {
       $this->host = $par1;
@@ -29,14 +30,7 @@ class api1{
       {
         if($row["type"]=="single")//判断 题类型
         {
-          if($row["answer"]==$index)//校验答案
-          {
-            return true;
-          }
-          else
-          {
-            return false;
-          }
+            return $row["answer"]==$index;
         }
         else
         {
@@ -58,13 +52,14 @@ class api1{
     else {
       return false;
     }
+    return true;
   }
   function isdo($openid)//查询今日答了几题
   {
     $stmt = $this->dbh->prepare("SELECT count(openid) as total FROM log where openid = ? and time = ?");
+    $time=date("Ymd");
     $stmt->bindParam(1, $openid);
     $stmt->bindParam(2, $time);
-    $time=date("Ymd");
     $stmt->execute();
     $row = $stmt->fetch();
     return $row["total"];
@@ -80,7 +75,7 @@ class api1{
     else
     {
       //记录答题信息
-      $dan = $this->dbh->prepare("INSERT INTO log (openid,id,true,duration,time) VALUES (?, ?,?,?,?)");
+      $dan = $this->dbh->prepare("INSERT INTO log (openid,id,`true`,duration,time) VALUES (?, ?,?,?,?)");
       $dan->bindParam(1, $openid);
       $dan->bindParam(2, $id);
       $dan->bindParam(3, $answer);
