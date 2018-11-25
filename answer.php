@@ -8,9 +8,10 @@
 
 require_once 'class/Api.php';
 require_once 'class/Api1.class.php';
+require_once 'password.php';
 $cx = new Api();
 
-if (Api::isLogin())
+if (Api::isLogin() && isset($_GET['action']))
     switch ($_GET['action']) {
         case 'getQuestion':
             {
@@ -19,10 +20,10 @@ if (Api::isLogin())
             }
         case 'checkAnswer':
             {
-                $ezhan=new api1($host,$dbname,$user,$pass);
-                $true=$ezhan->check($_POST["id"],$_POST["index"]);//($openid,$id,$answer,$duration)
-                $ezhan->update($_SESSION["openid"],$_POST["id"],$true,$_POST["duration"]);
-                $dan["answer"]=$true;
+                $ezhan = new api1($host, $dbname, $user, $pass);
+                $true = $ezhan->check($_POST["id"], $_POST["index"]);//($openid,$id,$answer,$duration)
+                $ezhan->update($_SESSION["openid"], $_POST["id"], $true, $_POST["duration"]);
+                $dan["answer"] = $true;
                 echo json_encode($dan);
                 break;
             }
