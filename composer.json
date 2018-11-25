@@ -3,7 +3,8 @@
     "description": "Fatal error : No Description",
     "type": "project",
     "require": {
-        "ext-PDO": "1.0.4dev"
+        "ext-PDO": "1.0.4dev",
+        "ext-json": "*"
     },
     "license": "mit",
     "authors": [

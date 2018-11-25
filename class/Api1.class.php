@@ -107,13 +107,14 @@ class api1{
   }
   function cover($openid)//获取个人信息
   {
-    $stmt = $this->dbh->prepare("SELECT imgUrl,num,college FROM person_info where openid = ?");
+    $stmt = $this->dbh->prepare("SELECT imgUrl,num,college,name FROM person_info where openid = ?");
     $stmt->bindParam(1, $openid);
     $stmt->execute();
     $row = $stmt->fetch();
     $imgUrl=$row["imgUrl"];
     $score=$row["num"];
     $college=$row["college"];
+    $name=$row["name"];
     //查询此人有几天参与答题
     $dan=$this->dbh->prepare("SELECT count(*) as total FROM (select count(*) from log where openid=? group by time) as table1");
     $dan->bindParam(1, $openid);
@@ -135,6 +136,7 @@ class api1{
     $data["college"]=$college;
     $data["day"]=$day;
     $data["isdo"]=$isdo;
+    $data["name"]=$name;
     return $data;
   }
   function receive($college,$email,$real_name,$code)//写入个人信息
