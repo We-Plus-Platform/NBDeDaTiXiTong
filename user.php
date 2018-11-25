@@ -7,6 +7,7 @@
  */
 
 require_once 'class/Api1.class.php';
+require_once 'class/Api.php';
 require_once 'password.php';
 $ezhan = new api1($host, $dbname, $user, $pass);
 if (Api::isLogin() && isset($_GET['action']))
