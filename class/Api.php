@@ -36,10 +36,7 @@ class Api extends DanDb
     /**
      * 随机抽10道题
      * @return array
-     */type:"multi"/"single";
-            id:,//问题id
-            content:'', //问题
-            option:[], //选项
+     */
     public function questionPicker()
     {
         $query = $this->stmt->prepare("SELECT id,topic,type,content FROM ezhan_cxdt.question ORDER BY RAND() LIMIT 10");
