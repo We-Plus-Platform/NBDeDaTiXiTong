@@ -32,20 +32,27 @@ class api1{
         {
             return $row["answer"]==$index[0];
         }
-        else
+        else//多选
         {
           $answer=json_decode($row["answer"],true);
           //$index=json_decode($index);
           $i=0;
-          while($index[$i])//多选校验
+          if(count($answer)==count($index))
           {
-            if($answer[$i]!=$index[$i]||isset($index[$i])==false||isset($answer[$i])==false)
+            while($index[$i])//多选校验
             {
-              return false;
+              if($answer[$i]!=$index[$i]||isset($index[$i])==false||isset($answer[$i])==false)
+              {
+                return false;
+              }
+              $i++;
             }
-            $i++;
+            return true;
           }
-          return true;
+          else
+          {
+            return false;
+          }
         }
       }
     }
