@@ -75,7 +75,7 @@ class api1{
     else
     {
       //记录答题信息
-      $dan = $this->dbh->prepare("INSERT INTO log (openid,id,`true`,duration,time) VALUES (?, ?,?,?,?)");
+      $dan = $this->dbh->prepare("INSERT INTO log (openid,question_id,is_correct,duration,time) VALUES (?, ?,?,?,?)");
       $dan->bindParam(1, $openid);
       $dan->bindParam(2, $id);
       $dan->bindParam(3, $answer);
