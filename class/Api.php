@@ -16,7 +16,7 @@ class Api extends DanDb
      */
     public static function isLogin()
     {
-        session_start();
+        if (!session_id()) session_start();
         return isset($_SESSION['openid']);
     }
 
@@ -44,5 +44,3 @@ class Api extends DanDb
         return $query->fetchAll();
     }
 }
-
-
