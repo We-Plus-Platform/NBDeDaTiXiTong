@@ -39,7 +39,7 @@ class api1{
           $i=0;
           while($answer[$i])//多选校验
           {
-            if($answer[$i]!=$index[$i])
+            if($answer[$i]!=$index[$i]||isset($index[$i])==false)
             {
               return false;
             }
