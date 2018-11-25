@@ -132,13 +132,11 @@ class api1{
   }
   function receive($college,$email,$real_name,$code)//写入个人信息
   {
-    $dan = $this->dbh->prepare("UPDATE person_info SET college=?,email=?,real_name=?,code=?,num=? WHERE openid='$_SESSION[openid]'");
+    $dan = $this->dbh->prepare("UPDATE person_info SET college=?,email=?,real_name=?,code=? WHERE openid='$_SESSION[openid]'");
     $dan->bindParam(1, $college);
     $dan->bindParam(2, $email);
     $dan->bindParam(3, $real_name);
     $dan->bindParam(4, $code);
-    $num=0;
-    $dan->bindParam(5, $num);
     $exe=$dan->execute();
     return $exe;
   }
