@@ -41,6 +41,6 @@ class Api extends DanDb
     {
         $query = $this->stmt->prepare("SELECT id,topic,type,content FROM ezhan_cxdt.question ORDER BY RAND() LIMIT 10");
         $query->execute();
-        return $query->fetchAll();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 }
