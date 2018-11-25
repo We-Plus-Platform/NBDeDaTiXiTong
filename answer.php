@@ -24,6 +24,7 @@ if (Api::isLogin() && isset($_GET['action']))
             {
                 $ezhan = new api1($host, $dbname, $user, $pass);
                 if (!(isset($_POST["index"]) && isset($_POST["id"]))) {
+                    $ezhan->update($_SESSION["openid"], $_POST["id"], false, $_POST["duration"]);
                     echo json_encode(array("answer" => false));
                     return;
                 }
