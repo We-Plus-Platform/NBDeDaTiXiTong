@@ -16,6 +16,7 @@ if (Api::isLogin() && isset($_GET['action']))
             {
                 $dan["status"] = $ezhan->message($_SESSION["openid"]);
                 echo json_encode($dan);
+                break;
             }
         case 'saveInfo':
             {
@@ -25,6 +26,7 @@ if (Api::isLogin() && isset($_GET['action']))
                 $pop[3] = $_POST["code"];
                 $dan["receive"] = $ezhan->receive(...$pop);
                 echo json_encode($dan);
+                break;
             }
         case 'getUserCover':
             {
