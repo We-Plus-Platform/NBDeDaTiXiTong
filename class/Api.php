@@ -36,11 +36,23 @@ class Api extends DanDb
     /**
      * 随机抽10道题
      * @return array
-     */
+     */type:"multi"/"single";
+            id:,//问题id
+            content:'', //问题
+            option:[], //选项
     public function questionPicker()
     {
         $query = $this->stmt->prepare("SELECT id,topic,type,content FROM ezhan_cxdt.question ORDER BY RAND() LIMIT 10");
         $query->execute();
-        return $query->fetchAll(PDO::FETCH_ASSOC);
+        $i=0;
+        while($row=$query->fetch(PDO::FETCH_ASSOC))
+        {
+          $data[$i]["type"]=$row["type"];
+          $data[$i]["id"]=$row["id"];
+          $data[$i]["content"]=$row["topic"];
+          $data[$i]["option"]=json_decode($row["content"],true);
+          $i++;
+        }
+        return $data;
     }
 }

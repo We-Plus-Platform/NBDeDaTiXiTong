@@ -15,7 +15,9 @@ if (Api::isLogin() && isset($_GET['action']))
     switch ($_GET['action']) {
         case 'getQuestion':
             {
-                echo json_encode($cx->questionPicker());
+                $dan["state"]=1;
+                $dan["data"]=$cx->questionPicker();
+                echo json_encode($dan);
                 break;
             }
         case 'checkAnswer':
