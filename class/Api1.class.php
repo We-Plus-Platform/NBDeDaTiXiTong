@@ -30,12 +30,12 @@ class api1{
       {
         if($row["type"]=="single")//判断 题类型
         {
-            return $row["answer"]==$index;
+            return $row["answer"]==$index[0];
         }
         else
         {
           $answer=json_decode($row["answer"],true);
-          $index=json_decode($index);
+          //$index=json_decode($index);
           $i=0;
           while($answer[$i])//多选校验
           {
