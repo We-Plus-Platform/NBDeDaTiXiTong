@@ -37,9 +37,9 @@ class api1{
           $answer=json_decode($row["answer"],true);
           //$index=json_decode($index);
           $i=0;
-          while($answer[$i])//多选校验
+          while($index[$i])//多选校验
           {
-            if($answer[$i]!=$index[$i]||isset($index[$i])==false)
+            if($answer[$i]!=$index[$i]||isset($index[$i])==false||isset($answer[$i])==false)
             {
               return false;
             }
