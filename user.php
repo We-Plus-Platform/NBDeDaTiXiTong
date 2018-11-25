@@ -21,7 +21,7 @@ if (Api::isLogin() && isset($_GET['action']))
             {
                 $pop[0] = $_POST["college"];
                 $pop[1] = $_POST["email"];
-                $pop[2] = $_POST["real_name"];
+                $pop[2] = $_POST["name"];
                 $pop[3] = $_POST["code"];
                 $dan["receive"] = $ezhan->receive(...$pop);
                 echo json_encode($dan);
