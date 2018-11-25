@@ -1,0 +1,16 @@
+{
+    "name": "byron/answersystem",
+    "description": "Fatal error : No Description",
+    "type": "project",
+    "require": {
+        "ext-PDO": "1.0.4dev"
+    },
+    "license": "mit",
+    "authors": [
+        {
+            "name": "Byron",
+            "email": "Byron0511@outlook.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
