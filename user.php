@@ -30,12 +30,18 @@ if (Api::isLogin() && isset($_GET['action']))
             {
                 $dan = $ezhan->cover($_SESSION["openid"]);
                 echo json_encode($dan);
+                break;
             }
         case 'getBoard':
             {
                 $dan["state"] = 1;
                 $dan["data"] = $ezhan->board($_SESSION["openid"]);
                 echo json_encode($dan);
+                break;
+            }
+        default:
+            {
+                echo json_encode(array("status"=>false));
             }
     }
 else
