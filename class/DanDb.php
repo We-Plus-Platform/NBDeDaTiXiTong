@@ -13,6 +13,7 @@ class DanDb extends Password
     protected $stmt;
 
     /**
+     * 数据库连接类
      * DanDb constructor.
      */
     public function __construct()

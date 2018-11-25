@@ -7,12 +7,11 @@
  */
 
 require_once "DanDb.php";
-//登录
-//抽题
 
 class Api extends DanDb
 {
     /**
+     * 判断登录类
      * @return bool
      */
     public static function isLogin()
@@ -23,6 +22,7 @@ class Api extends DanDb
 
 
     /**
+     * session 绑定
      * @param $openid
      * @return bool
      */
@@ -34,6 +34,7 @@ class Api extends DanDb
     }
 
     /**
+     * 随机抽10道题
      * @return array
      */
     public function questionPicker()

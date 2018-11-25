@@ -16,6 +16,7 @@ class WxGetUserInfo
 
     /**
      * WxGetUserInfo constructor.
+     * Documentation:https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842
      * @param $app_id
      * @param $app_secret
      * @param $code

@@ -11,6 +11,7 @@ require_once "DanDb.php";
 class WxProcessor extends DanDb
 {
     /**
+     * 生成用户跳转地址
      * @param $app_id
      * @param $redirect_uri
      * @param $state
@@ -24,6 +25,7 @@ class WxProcessor extends DanDb
     }
 
     /**
+     * 判断初次登录
      * @param $openid
      * @return mixed
      */
