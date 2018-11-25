@@ -15,14 +15,18 @@ if (Api::isLogin() && isset($_GET['action']))
     switch ($_GET['action']) {
         case 'getQuestion':
             {
-                $dan["state"]=1;
-                $dan["data"]=$cx->questionPicker();
+                $dan["state"] = 1;
+                $dan["data"] = $cx->questionPicker();
                 echo json_encode($dan);
                 break;
             }
         case 'checkAnswer':
             {
                 $ezhan = new api1($host, $dbname, $user, $pass);
+                if (!(isset($_POST["index"]) && isset($_POST["id"]))) {
+                    echo json_encode(array("answer" => false));
+                    return;
+                }
                 $true = $ezhan->check($_POST["id"], $_POST["index"]);//($openid,$id,$answer,$duration)
                 $ezhan->update($_SESSION["openid"], $_POST["id"], $true, $_POST["duration"]);
                 $dan["answer"] = $true;
