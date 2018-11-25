@@ -123,12 +123,12 @@ class api1{
       $isdo=1;
     }
 
-    $dan["imgUrl"]=$imgUrl;
-    $dan["score"]=$score;
-    $dan["college"]=$college;
-    $dan["day"]=$day;
-    $dan["isdo"]=$isdo;
-    return $dan;
+    $data["imgUrl"]=$imgUrl;
+    $data["score"]=$score;
+    $data["college"]=$college;
+    $data["day"]=$day;
+    $data["isdo"]=$isdo;
+    return $data;
   }
   function receive($college,$email,$real_name,$code)//写入个人信息
   {
