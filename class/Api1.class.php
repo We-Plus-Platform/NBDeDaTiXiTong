@@ -132,7 +132,7 @@ class api1{
   }
   function receive($college,$email,$real_name,$code)//写入个人信息
   {
-    $dan = $this->dbh->prepare("INSERT INTO person_info (college,email,real_name,code) VALUES (?, ?,?,?)");
+    $dan = $this->dbh->prepare("UPDATE person_info SET college=?,email=?,real_name=?,code=? WHERE openid=$_SESSION[openid]");
     $dan->bindParam(1, $college);
     $dan->bindParam(2, $email);
     $dan->bindParam(3, $real_name);
