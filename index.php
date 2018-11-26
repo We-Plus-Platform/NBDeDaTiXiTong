@@ -15,6 +15,6 @@ $cxapi = new Api();
 if (Api::isLogin()) {
     header("Location: ../index.html");
 } else {
-    $url = WxProcessor::genAuthURL($app_id, "http://www.yf407.cn/cxdt/api/login.php", "login");
+    $url = WxProcessor::genAuthURL($app_id, "http://www.danthology.cn/cxdt/api/login.php", "login");
     header("Location: " . $url);
 }
