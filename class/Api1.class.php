@@ -114,7 +114,7 @@ class api1{
     $imgUrl=$row["imgUrl"];
     $score=$row["num"];
     $college=$row["college"];
-    $name=$row["name"];
+    $name=base64_decode($row["name"]);
     //查询此人有几天参与答题
     $dan=$this->dbh->prepare("SELECT count(*) as total FROM (select count(*) from log where openid=? group by time) as table1");
     $dan->bindParam(1, $openid);

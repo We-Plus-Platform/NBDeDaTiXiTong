@@ -24,6 +24,5 @@ class DanDb extends Password
         } catch (PDOException $e) {
             echo json_encode(array("Error" => $e->getMessage()));
         }
-
     }
 }
