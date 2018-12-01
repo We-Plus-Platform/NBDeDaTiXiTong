@@ -43,16 +43,16 @@ class WxProcessor extends DanDb
      */
     public function saveUserInfo($res)
     {
-        if (!$this->isFirstLogin($res['openid'])){
+        if (!$this->isFirstLogin($res['openid'])) {
             $query = $this->stmt->prepare("INSERT INTO ezhan_cxdt.person_info (openid, name, imgUrl, num) VALUES (?,?,?,?)");
-            $query->bindParam(1, base64_encode($res['openid']));
+            $openid = base64_encode($res['openid']);
+            $query->bindParam(1, $openid);
             $query->bindParam(2, $res['nickname']);
             $query->bindParam(3, $res['headimgurl']);
-            $num=0;
+            $num = 0;
             $query->bindParam(4, $num);
             return $query->execute();
-        }
-        else
+        } else
             return true;
     }
 }
