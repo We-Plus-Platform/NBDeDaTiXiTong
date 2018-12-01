@@ -171,7 +171,7 @@ class api1{
     $i=0;
     while($row = $stmt->fetch())
     {
-        $dan[$i]["name"]=$row["name"];
+        $dan[$i]["name"]=base64_decode($row["name"]);
         $dan[$i]["imgUrl"]=$row["imgUrl"];
         $dan[$i]["score"]=$row["num"];
         $dan[$i]["college"]=$row["college"];
